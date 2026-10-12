@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crepe Myrtle Variety Lookup (Australia): Size, Colour, Climate</title>
+<meta name="description" content="Filter and sort crepe myrtle varieties for Australian gardens by mature height, flower colour, use and climate. Includes size tiers, climate matrix and a symptom lookup.">
+<style>
+:root{
+  --ink:#1f2328; --muted:#5d6068; --paper:#fbfafc; --tint:#f1eef4; --line:#d8d4de;
+  --leaf:#2c5a4d; --bloom:#a8235f; --bark:#6b625b;
+  --white:#ffffff; --pink:#e58fb4; --red:#c0272d; --lav:#9b86c9;
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 var(--sans)}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 18px 56px}
+h1{font:700 clamp(1.7rem,4vw,2.4rem)/1.15 var(--serif);margin:0 0 8px;letter-spacing:-.01em}
+h2{font:700 1.35rem/1.25 var(--serif);margin:44px 0 10px;padding-top:6px}
+p{margin:0 0 10px}
+a{color:var(--bloom);text-underline-offset:2px}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--leaf);outline-offset:2px}
+.lede{color:var(--muted);max-width:68ch;margin-bottom:6px}
+.source{font-size:.92rem;color:var(--muted);margin-bottom:22px}
+
+/* quick reference */
+.quick{background:var(--tint);border-left:5px solid var(--bloom);padding:14px 18px;border-radius:0 6px 6px 0}
+.quick h2{margin:0 0 8px;padding:0;font-size:1.1rem}
+.quick ul{margin:0;padding-left:20px;columns:2 340px;column-gap:32px}
+.quick li{margin:0 0 6px;break-inside:avoid}
+
+/* filters */
+.filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:14px 0 8px;align-items:end}
+.filters label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:3px}
+.filters select,.filters input{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:5px;background:#fff;font:inherit;color:var(--ink)}
+.bar-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:6px 0 10px;font-size:.92rem}
+.btn{border:1px solid var(--line);background:#fff;padding:6px 12px;border-radius:5px;font:inherit;cursor:pointer;color:var(--ink)}
+.btn:hover{border-color:var(--bloom)}
+.note{font-size:.88rem;color:var(--muted)}
+
+/* tables */
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:#fff}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+caption{text-align:left;padding:10px 12px;font-size:.88rem;color:var(--muted)}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-top:1px solid var(--line)}
+thead th{background:var(--tint);border-top:0;white-space:nowrap;font-weight:600}
+tbody tr:hover{background:#faf7fb}
+td.name{font-weight:600;white-space:nowrap}
+td.name em{font-weight:400}
+.sortbtn{all:unset;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.sortbtn:focus-visible{outline:3px solid var(--leaf);outline-offset:2px}
+.sortbtn::after{content:"\2195";color:var(--muted);font-size:.85em}
+th[aria-sort="ascending"] .sortbtn::after{content:"\2191";color:var(--bloom)}
+th[aria-sort="descending"] .sortbtn::after{content:"\2193";color:var(--bloom)}
+.na{color:var(--muted)}
+.chip{display:inline-block;width:.8em;height:.8em;border-radius:50%;border:1px solid #8a8690;margin-right:5px;vertical-align:-1px}
+.chip.white{background:var(--white)}.chip.pink{background:var(--pink)}.chip.red{background:var(--red)}.chip.lavender{background:var(--lav)}
+.hcell{min-width:210px}
+.htext{display:block;font-variant-numeric:tabular-nums;white-space:nowrap}
+.track{position:relative;height:9px;margin-top:5px;border-radius:2px;
+  background:repeating-linear-gradient(to right,var(--tint) 0,var(--tint) calc(25% - 1px),var(--line) calc(25% - 1px),var(--line) 25%)}
+.fill{position:absolute;top:0;bottom:0;background:var(--leaf);border-radius:2px;min-width:4px}
+.fill.open{background:repeating-linear-gradient(45deg,var(--leaf) 0 4px,#6f9a8d 4px 8px)}
+.empty{padding:18px;text-align:center;color:var(--muted)}
+.axis{font-size:.78rem;color:var(--muted)}
+
+@media (max-width:640px){
+  .wrap{padding:20px 12px 44px}
+  td.name{white-space:normal}
+}
+@media print{
+  .filters,.bar-row .btn{display:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Crepe myrtle variety lookup for Australian gardens</h1>
+  <p class="lede">Filter or sort cultivars by mature height, flower colour, use and climate before you buy.</p>
+  <p class="source">Data compiled from and expanded on this guide: <a href="https://leafyheaven.com.au/crepe-myrtle-varieties-australia/">crepe myrtle size, colour and climate guide for Australian gardens</a>.</p>
+</header>
+
+<section class="quick" aria-labelledby="qr">
+  <h2 id="qr">Quick reference</h2>
+  <ul>
+    <li>Pick mature size first, then climate, then flower colour.</li>
+    <li>Published heights vary by source. Plan around the upper end of a credible range.</li>
+    <li>Size tiers: dwarf 0.6–2 m, compact 2–3.5 m, medium 3.5–5 m, large 5–8 m+.</li>
+    <li>Pots: compact types (Acoma, Zuni, Hopi) in large containers, around 60 cm.</li>
+    <li>Mildew risk rises with humidity. Resistant hybrids are better, not immune.</li>
+    <li>Main flowering is roughly December to March, shifting with location.</li>
+    <li>Plants are deciduous. Winter bare branches and leaf drop are normal.</li>
+    <li>Hard annual pruning is not needed for flowers.</li>
+    <li>Genuinely blue flowers are not an established colour. Expect white, pink, red, lavender or purple.</li>
+    <li>One native taxon exists: <em>Lagerstroemia engleriana</em> (formerly <em>L. archeriana</em>), tropical north only.</li>
+  </ul>
+</section>
+
+<h2 id="finder">Variety finder</h2>
+<div class="filters" role="search" aria-label="Filter varieties">
+  <div><label for="q">Search name or notes</label><input id="q" type="search" placeholder="e.g. Natchez, pot, avenue"></div>
+  <div><label for="f-tier">Height tier</label>
+    <select id="f-tier"><option value="">Any</option><option value="dwarf">Dwarf (0.6–2 m)</option><option value="compact">Compact (2–3.5 m)</option><option value="medium">Medium (3.5–5 m)</option><option value="large">Large (5–8 m+)</option><option value="na">Other / not listed</option></select></div>
+  <div><label for="f-colour">Flower colour</label>
+    <select id="f-colour"><option value="">Any</option><option value="white">White</option><option value="pink">Pink</option><option value="red">Red</option><option value="lavender">Lavender / purple</option></select></div>
+  <div><label for="f-use">Best use</label>
+    <select id="f-use"><option value="">Any</option><option value="pot">Pots and courtyards</option><option value="small">Small garden</option><option value="feature">Feature tree</option><option value="avenue">Avenue / street</option></select></div>
+  <div><label for="f-climate">Listed as a pick for climate</label>
+    <select id="f-climate"><option value="">Any</option><option value="cool">Cool temperate</option><option value="temperate">Temperate</option><option value="med">Mediterranean</option><option value="subtropical">Subtropical</option><option value="tropical">Tropical</option></select></div>
+</div>
+<div class="bar-row">
+  <span id="count" aria-live="polite"></span>
+  <button type="button" class="btn" id="reset">Reset filters</button>
+</div>
+
+<div class="scroll">
+<table id="lookup">
+  <caption>Click a column heading to sort. Height sorts by the upper end of the range. Bar scale is 0–8 m, gridlines every 2 m.</caption>
+  <thead>
+    <tr>
+      <th scope="col" aria-sort="none"><button type="button" class="sortbtn" data-key="name">Name</button></th>
+      <th scope="col" aria-sort="none"><button type="button" class="sortbtn" data-key="type">Type</button></th>
+      <th scope="col" aria-sort="ascending"><button type="button" class="sortbtn" data-key="max">Mature height</button></th>
+      <th scope="col" aria-sort="none"><button type="button" class="sortbtn" data-key="colour">Flower colour</button></th>
+      <th scope="col">Best for</th>
+      <th scope="col">Climate picks</th>
+      <th scope="col">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-name="Houston" data-type="Cultivar" data-tier="dwarf" data-max="0.7" data-colour="" data-use="" data-climate="">
+      <td class="name">Houston</td><td>Cultivar</td>
+      <td class="hcell"><span class="htext">~0.6–0.7 m</span><div class="track" aria-hidden="true"><div class="fill" style="left:7.5%;width:1.25%"></div></div></td>
+      <td class="na">Not listed</td><td>Shrub-like form</td><td class="na">—</td><td>Reported at roughly 60–70 cm. Smallest entry here.</td>
+    </tr>
+    <tr data-name="Pixie White" data-type="Cultivar" data-tier="dwarf" data-max="2" data-colour="white" data-use="" data-climate="">
+      <td class="name">Pixie White</td><td>Cultivar</td>
+      <td class="hcell"><span class="htext">~2 m</span><div class="track" aria-hidden="true"><div class="fill" style="left:25%;width:0"></div></div></td>
+      <td><span class="chip white"></span>White</td><td>Low-growing white option</td><td class="na">—</td><td>Reported around 2 m.</td>
+    </tr>
+    <tr data-name="Acoma" data-type="Cultivar" data-tier="compact" data-max="3.5" data-colour="white" data-use="pot" data-climate="">
+      <td class="name">Acoma</td><td>Cultivar</td>
+      <td class="hcell"><span class="htext">2–3.5 m <span class="na">(tier range)</span></span><div class="track" aria-hidden="true"><div class="fill" style="left:25%;width:18.75%"></div></div></td>
+      <td><span class="chip white"></span>White</td><td>Pots, courtyards</td><td class="na">—</td><td>Suited to large containers, around 60 cm pots.</td>
+    </tr>
+    <tr data-name="Zuni" data-type="Cultivar" data-tier="compact" data-max="3.5" data-colour="" data-use="pot small" data-climate="temperate">
+      <td class="name">Zuni</td><td>Cultivar</td>
+      <td class="hcell"><span class="htext">2–3.5 m <span class="na">(tier range)</span></span><div class="track" aria-hidden="true"><div class="fill" style="left:25%;width:18.75%"></div></div></td>
+      <td class="na">Not listed</td><td>Pots, small gardens</td><td>Temperate</td><td>Container-suitable compact type.</td>
+    </tr>
+    <tr data-name="Hopi" data-type="Cultivar" data-tier="compact" data-max="3.5" data-colour="" data-use="pot" data-climate="">
+      <td class="name">Hopi</td><td>Cultivar</td>
+      <td class="hcell"><span class="htext">2–3.5 m <span class="na">(tier range)</span></span><div class="track" aria-hidden="true"><div class="fill" style="left:25%;width:18.75%"></div></div></td>
+      <td class="na">Not listed</td><td>Pots, courtyards</td><td class="na">—</td><td>Container-suitable compact type.</td>
+    </tr>
+    <tr data-name="Comanche" data-type="Cultivar" data-tier="medium" data-max="5" data-colour="" data-use="" data-climate="">
+      <td class="name">Comanche</td><td>Cultivar</td>
+      <td class="hcell"><span class="htext">3.5–5 m <span class="na">(tier range)</span></span><div class="track" aria-hidden="true"><div class="fill" style="left:43.75%;width:18.75%"></div></div></td>
+      <td class="na">Not listed</td><td class="na">Not listed</td><td class="na">—</td><td>Medium tier: light structural pruning can control shape.</td>
+    </tr>
+    <tr data-name="Tonto" data-type="Cultivar" data-tier="medium" data-max="5" data-colour="" data-use="small" data-climate="">
+      <td class="name">Tonto</td><td>Cultivar</td>
+      <td class="hcell"><span class="htext">3.5–5 m <span class="na">(tier range)</span></span><div class="track" aria-hidden="true"><div class="fill" style="left:43.75%;width:18.75%"></div></div></td>
+      <td class="na">Not listed</td><td>Small gardens</td><td class="na">—</td><td>Check mature spread before planting.</td>
+    </tr>
+    <tr data-name="Sioux" data-type="Cultivar" data-tier="medium" data-max="7" data-colour="pink" data-use="small feature" data-climate="cool temperate med subtropical">
+      <td class="name">Sioux</td><td>Cultivar</td>
+      <td class="hcell"><span class="htext">4–5 m common; up to 5–7 m</span><div class="track" aria-hidden="true"><div class="fill" style="left:50%;width:37.5%"></div></div></td>
+      <td><span class="chip pink"></span>Pink</td><td>Small garden, feature tree</td><td>Cool temperate, Temperate, Mediterranean, Subtropical</td><td>Listed as a pick in four of the five climate zones. Broader nursery collections give the larger size.</td>
+    </tr>
+    <tr data-name="Miami" data-type="Cultivar" data-tier="large" data-max="8" data-colour="pink" data-use="feature" data-climate="">
+      <td class="name">Miami</td><td>Cultivar</td>
+      <td class="hcell"><span class="htext">5–8 m+ <span class="na">(tier range)</span></span><div class="track" aria-hidden="true"><div class="fill" style="left:62.5%;width:37.5%"></div></div></td>
+      <td><span class="chip pink"></span>Pink</td><td>Feature tree</td><td class="na">—</td><td>Needs enough space even when selectively pruned.</td>
+    </tr>
+    <tr data-name="Tuscarora" data-type="Cultivar" data-tier="large" data-max="8" data-colour="pink" data-use="feature avenue" data-climate="med subtropical">
+      <td class="name">Tuscarora</td><td>Cultivar</td>
+      <td class="hcell"><span class="htext">5–8 m+ <span class="na">(tier range)</span></span><div class="track" aria-hidden="true"><div class="fill" style="left:62.5%;width:37.5%"></div></div></td>
+      <td><span class="chip pink"></span>Pink</td><td>Feature tree, avenue</td><td>Mediterranean, Subtropical</td><td>Street-tree scale. Check clearance and mature spread.</td>
+    </tr>
+    <tr data-name="Natchez" data-type="Cultivar" data-tier="large" data-max="8" data-colour="white" data-use="avenue" data-climate="cool temperate med">
+      <td class="name">Natchez</td><td>Cultivar</td>
+      <td class="hcell"><span class="htext">6–8 m</span><div class="track" aria-hidden="true"><div class="fill" style="left:75%;width:25%"></div></div></td>
+      <td><span class="chip white"></span>White</td><td>Avenue / street</td><td>Cool temperate, Temperate, Mediterranean</td><td>Poor fit for a small courtyard despite the white flowers. From U.S. National Arboretum breeding.</td>
+    </tr>
+    <tr data-name="Native crepe myrtle (Lagerstroemia engleriana)" data-type="Native species" data-tier="na" data-max="15" data-colour="" data-use="" data-climate="tropical">
+      <td class="name"><em>L. engleriana</em><br><span class="na" style="font-weight:400">formerly <em>L. archeriana</em></span></td><td>Native species</td>
+      <td class="hcell"><span class="htext">Up to ~15 m</span><div class="track" aria-hidden="true"><div class="fill open" style="left:0;width:100%"></div></div></td>
+      <td class="na">Not listed</td><td class="na">Not listed</td><td>Tropical</td><td>Native to Qld and WA. Northern gallery and monsoon-forest habitats, so not a cool-climate substitute. Check state weed listings.</td>
+    </tr>
+    <tr data-name="Grande Red" data-type="Cultivar" data-tier="na" data-max="" data-colour="red" data-use="" data-climate="">
+      <td class="name">Grande Red</td><td>Cultivar</td>
+      <td class="hcell na">Not listed</td>
+      <td><span class="chip red"></span>Red</td><td class="na">Not listed</td><td class="na">—</td><td>Darker flowers and seasonal foliage.</td>
+    </tr>
+    <tr data-name="Yuma" data-type="Cultivar" data-tier="na" data-max="" data-colour="lavender" data-use="" data-climate="">
+      <td class="name">Yuma</td><td>Cultivar</td>
+      <td class="hcell na">Not listed</td>
+      <td><span class="chip lavender"></span>Lavender / purple</td><td class="na">Not listed</td><td class="na">—</td><td>Lavender/purple group sits in the compact–medium range. Often paired with ornamental bark.</td>
+    </tr>
+    <tr data-name="Lipan" data-type="Cultivar" data-tier="na" data-max="" data-colour="lavender" data-use="" data-climate="">
+      <td class="name">Lipan</td><td>Cultivar</td>
+      <td class="hcell na">Not listed</td>
+      <td><span class="chip lavender"></span>Lavender / purple</td><td class="na">Not listed</td><td class="na">—</td><td>Lavender/purple group sits in the compact–medium range. Often paired with ornamental bark.</td>
+    </tr>
+    <tr data-name="Indian Summer" data-type="Trade series" data-tier="na" data-max="" data-colour="" data-use="" data-climate="">
+      <td class="name">Indian Summer</td><td>Trade series</td>
+      <td class="hcell na">Varies by cultivar</td>
+      <td class="na">Varies</td><td class="na">Varies</td><td class="na">—</td><td>Marketing and breeding group. Always check the cultivar name on the label.</td>
+    </tr>
+    <tr data-name="Diamonds in the Dark" data-type="Trade series" data-tier="na" data-max="" data-colour="white red" data-use="pot" data-climate="">
+      <td class="name">Diamonds in the Dark</td><td>Trade series</td>
+      <td class="hcell na">Varies by cultivar</td>
+      <td><span class="chip white"></span><span class="chip red"></span>White, red selections</td><td>Pots (some selections)</td><td class="na">—</td><td>Some selections suit large containers, around 60 cm pots.</td>
+    </tr>
+  </tbody>
+</table>
+<p class="empty" id="empty" hidden>No varieties match these filters. Reset a filter or widen the search.</p>
+</div>
+<p class="note" style="margin-top:8px">“Not listed” means the source data gives no figure. Check the nursery label. A blank climate pick means not named for that climate, not unsuitable. “Tier range” means the height is the tier’s range, not a measured cultivar figure.</p>
+
+<h2 id="tiers">Size tiers</h2>
+<div class="scroll">
+<table>
+  <thead><tr><th scope="col">Tier</th><th scope="col">Mature height</th><th scope="col">Pruning reality</th><th scope="col">Examples</th></tr></thead>
+  <tbody>
+    <tr><td class="name">Dwarf / miniature</td><td>~0.6–2 m</td><td>Natural size can be very small. Pruning can hold a lower form.</td><td>Houston, Pixie White</td></tr>
+    <tr><td class="name">Compact</td><td>~2–3.5 m</td><td>Usually manageable without severe pruning.</td><td>Acoma, Zuni, Hopi</td></tr>
+    <tr><td class="name">Medium</td><td>~3.5–5 m</td><td>Light structural pruning controls shape.</td><td>Comanche, Tonto, Sioux</td></tr>
+    <tr><td class="name">Large</td><td>~5–8 m+</td><td>Needs space even when selectively pruned.</td><td>Miami, Tuscarora, Natchez</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="note" style="margin-top:8px">Why sizes differ between sources: pruning, climate, soil, age, breeder potential versus garden-grown specimens, and shrub versus tree management. Established growth is roughly 30–50 cm a year in one Australian nursery’s guide, which is a rough figure only.</p>
+
+<h2 id="climate">Climate matrix</h2>
+<div class="scroll">
+<table>
+  <thead><tr><th scope="col">Climate</th><th scope="col">Example cities</th><th scope="col">Mildew pressure</th><th scope="col">Suggested picks</th><th scope="col">Watch-outs</th></tr></thead>
+  <tbody>
+    <tr><td class="name">Cool temperate</td><td>Canberra, Ballarat, inland Victoria</td><td>Low–moderate</td><td>Sioux, Natchez, suitable hardy hybrids</td><td>Frost, short summers</td></tr>
+    <tr><td class="name">Temperate</td><td>Melbourne, Adelaide, Sydney</td><td>Moderate</td><td>Sioux, Zuni, Natchez</td><td>Check local winter exposure</td></tr>
+    <tr><td class="name">Mediterranean</td><td>Perth, Adelaide</td><td>Generally lower</td><td>Natchez, Sioux, Tuscarora</td><td>Heat, irrigation while establishing</td></tr>
+    <tr><td class="name">Subtropical</td><td>Brisbane, coastal NSW</td><td>Moderate–high</td><td>Sioux, Tuscarora, mildew-resistant hybrids</td><td>Humidity, airflow</td></tr>
+    <tr><td class="name">Tropical</td><td>Darwin, Far North Queensland</td><td>Higher</td><td>Native <em>L. engleriana</em>; selected ornamentals with caution</td><td>Humidity, less reliable flowering</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="note" style="margin-top:8px">A planning guide, not a cultivar resistance test. No crepe myrtle is completely mildew-proof.</p>
+
+<h2 id="colour">Colour, bark and flowering</h2>
+<div class="scroll">
+<table>
+  <thead><tr><th scope="col">Colour</th><th scope="col">Examples</th><th scope="col">Height tier</th><th scope="col">Bark or autumn note</th></tr></thead>
+  <tbody>
+    <tr><td class="name"><span class="chip white"></span>White</td><td>Natchez, Acoma, Pixie White</td><td>Compact–large</td><td>Peeling bark, autumn foliage</td></tr>
+    <tr><td class="name"><span class="chip pink"></span>Pink</td><td>Sioux, Tuscarora, Miami</td><td>Medium–large</td><td>Strong summer display</td></tr>
+    <tr><td class="name"><span class="chip red"></span>Red</td><td>Grande Red, some Diamonds in the Dark</td><td>Compact–large</td><td>Darker flowers, seasonal foliage</td></tr>
+    <tr><td class="name"><span class="chip lavender"></span>Lavender / purple</td><td>Yuma, Lipan</td><td>Compact–medium</td><td>Often paired with ornamental bark</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="note" style="margin-top:8px">No single longest-blooming cultivar can be named from consistent Australian evidence. Treat that claim cautiously.</p>
+
+<h2 id="terms">Species, cultivar or series?</h2>
+<div class="scroll">
+<table>
+  <thead><tr><th scope="col">Term</th><th scope="col">Meaning</th><th scope="col">Example</th><th scope="col">What it tells you</th></tr></thead>
+  <tbody>
+    <tr><td class="name">Species</td><td>Botanical species</td><td><em>L. indica</em></td><td>Natural taxonomic identity</td></tr>
+    <tr><td class="name">Cultivar</td><td>Named cultivated selection</td><td>Natchez, Sioux, Hopi</td><td>Specific size, colour and habit</td></tr>
+    <tr><td class="name">Trade series</td><td>Commercial grouping of cultivars</td><td>Indian Summer, Diamonds in the Dark</td><td>Marketing group. Not a substitute for the cultivar name.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="problems">Problem lookup</h2>
+<div class="filters" style="grid-template-columns:minmax(200px,360px)">
+  <div><label for="pq">Search symptom, cause or fix</label><input id="pq" type="search" placeholder="e.g. white powder, no flowers"></div>
+</div>
+<div class="scroll">
+<table id="problems-table">
+  <thead><tr><th scope="col">Symptom</th><th scope="col">Likely cause</th><th scope="col">Fix</th><th scope="col">Prevention</th></tr></thead>
+  <tbody>
+    <tr><td class="name">White powder on leaves</td><td>Powdery mildew</td><td>Improve airflow and exposure. Use appropriate disease control if needed.</td><td>Full sun, resistant cultivars</td></tr>
+    <tr><td class="name">Few flowers</td><td>Too little sun, stress or excessive pruning</td><td>Improve light. Avoid unnecessary severe cutting.</td><td>Choose a sunny site</td></tr>
+    <tr><td class="name">Sooty mould, sticky foliage</td><td>Aphids or other sap-feeders</td><td>Deal with the insect source.</td><td>Monitor new growth</td></tr>
+    <tr><td class="name">Too big for the spot</td><td>Wrong cultivar</td><td>Reduce selectively, or replace with a compact form.</td><td>Check mature dimensions before planting</td></tr>
+    <tr><td class="name">Leaf drop in winter</td><td>Normal deciduous dormancy</td><td>Let the plant rest.</td><td>Do not mistake dormancy for disease</td></tr>
+    <tr><td class="name">Stunted growth</td><td>Root stress, poor drainage or environmental stress</td><td>Check soil and root conditions.</td><td>Good drainage, suitable establishment care</td></tr>
+  </tbody>
+</table>
+<p class="empty" id="pempty" hidden>No matching symptom. Try a shorter word.</p>
+</div>
+
+<h2 id="care">Planting and pruning checks</h2>
+<div class="scroll">
+<table>
+  <thead><tr><th scope="col">Topic</th><th scope="col">Rule of thumb</th></tr></thead>
+  <tbody>
+    <tr><td class="name">Site</td><td>Full sun, free-draining soil.</td></tr>
+    <tr><td class="name">Planting time</td><td>No single Australia-wide month. Winter is a practical window for deciduous plants in many southern areas. Warmer regions differ.</td></tr>
+    <tr><td class="name">Establishment</td><td>Water deeply, not often and shallow. Reduce irrigation once established, based on rain, soil and season.</td></tr>
+    <tr><td class="name">Pruning</td><td>Not required for flowering. Use it for structure, clearance and size. Avoid repeated stub-cutting at one height and severe annual topping.</td></tr>
+    <tr><td class="name">Large cultivar, small space</td><td>Replace rather than fight it with pruning for life.</td></tr>
+    <tr><td class="name">Fertiliser</td><td>Base it on plant needs and soil testing. Coffee grounds are not a special crepe myrtle treatment.</td></tr>
+    <tr><td class="name">Lifespan</td><td>Decades. Extension guidance reports specimens over 50 years.</td></tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+
+<script>
+(function () {
+  var table = document.getElementById('lookup');
+  var body = table.tBodies[0];
+  var rows = Array.prototype.slice.call(body.rows);
+  var q = document.getElementById('q');
+  var sel = {
+    tier: document.getElementById('f-tier'),
+    colour: document.getElementById('f-colour'),
+    use: document.getElementById('f-use'),
+    climate: document.getElementById('f-climate')
+  };
+  var count = document.getElementById('count');
+  var empty = document.getElementById('empty');
+
+  function has(list, v) { return (' ' + list + ' ').indexOf(' ' + v + ' ') !== -1; }
+
+  function apply() {
+    var term = q.value.trim().toLowerCase(), shown = 0;
+    rows.forEach(function (r) {
+      var d = r.dataset;
+      var ok = (!term || r.textContent.toLowerCase().indexOf(term) !== -1) &&
+        (!sel.tier.value || d.tier === sel.tier.value) &&
+        (!sel.colour.value || has(d.colour, sel.colour.value)) &&
+        (!sel.use.value || has(d.use, sel.use.value)) &&
+        (!sel.climate.value || has(d.climate, sel.climate.value));
+      r.hidden = !ok;
+      if (ok) shown++;
+    });
+    count.textContent = 'Showing ' + shown + ' of ' + rows.length + ' entries';
+    empty.hidden = shown !== 0;
+  }
+
+  [q, sel.tier, sel.colour, sel.use, sel.climate].forEach(function (el) {
+    el.addEventListener('input', apply);
+    el.addEventListener('change', apply);
+  });
+
+  document.getElementById('reset').addEventListener('click', function () {
+    q.value = '';
+    Object.keys(sel).forEach(function (k) { sel[k].value = ''; });
+    apply();
+  });
+
+  // Sorting
+  var heads = table.querySelectorAll('thead th');
+  function sortBy(th, key) {
+    var dir = th.getAttribute('aria-sort') === 'ascending' ? 'descending' : 'ascending';
+    Array.prototype.forEach.call(heads, function (h) { h.setAttribute('aria-sort', 'none'); });
+    th.setAttribute('aria-sort', dir);
+    var mult = dir === 'ascending' ? 1 : -1;
+    rows.sort(function (a, b) {
+      var av = a.dataset[key], bv = b.dataset[key];
+      if (key === 'max') {
+        var an = av === '' ? NaN : parseFloat(av), bn = bv === '' ? NaN : parseFloat(bv);
+        if (isNaN(an) && isNaN(bn)) return 0;
+        if (isNaN(an)) return 1;   // entries without a height always last
+        if (isNaN(bn)) return -1;
+        return (an - bn) * mult;
+      }
+      if (av === '' && bv === '') return 0;
+      if (av === '') return 1;
+      if (bv === '') return -1;
+      return av.localeCompare(bv) * mult;
+    });
+    rows.forEach(function (r) { body.appendChild(r); });
+  }
+  Array.prototype.forEach.call(table.querySelectorAll('.sortbtn'), function (btn) {
+    btn.addEventListener('click', function () { sortBy(btn.parentNode, btn.dataset.key); });
+  });
+
+  apply();
+
+  // Problem lookup
+  var pq = document.getElementById('pq');
+  var prow = document.getElementById('problems-table').tBodies[0].rows;
+  var pempty = document.getElementById('pempty');
+  pq.addEventListener('input', function () {
+    var t = pq.value.trim().toLowerCase(), n = 0;
+    Array.prototype.forEach.call(prow, function (r) {
+      var ok = !t || r.textContent.toLowerCase().indexOf(t) !== -1;
+      r.hidden = !ok;
+      if (ok) n++;
+    });
+    pempty.hidden = n !== 0;
+  });
+})();
+</script>
+</body>
+</html>
